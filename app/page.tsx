@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <div className="relative mx-auto max-w-[2560px] overflow-clip">
       <div className="absolute left-[-24%] top-[-160px] z-[-10] h-[500px] w-[500px] rounded-full bg-[#FF5722] blur-[20em]"></div>
-      <div className="overflow-x-hidden">
-        <header className="flex items-center justify-between gap-x-16 px-[6%] py-7 md:gap-x-0 lg:px-[min(4em,10%)]">
+      <div className="overflow-x-hidden xl:flex xl:flex-col">
+        <header className="flex items-center justify-between gap-x-16 px-[6%] py-7 md:gap-x-0 lg:px-[max(5.7em,3.6%)] xl:w-[min(90%,78rem)] xl:self-center">
           <div className="flex cursor-pointer items-center gap-3">
             <Image
               src="/travlog.svg"
@@ -117,7 +117,7 @@ export default function Home() {
                     height={24}
                   />
                 </button>
-                <h1 className="max-w-[40rem] border-2 text-clamp font-bold leading-tight md:max-w-[36rem] lg:max-w-[21rem] lg:leading-normal xl:max-w-[29rem]">
+                <h1 className="max-w-[40rem] text-clamp font-bold leading-tight md:max-w-[36rem] lg:max-w-[21rem] lg:leading-normal xl:max-w-[29rem]">
                   Travel <span className="text-[#F85E9F]">top destination</span>{" "}
                   of the world
                 </h1>
@@ -293,8 +293,8 @@ export default function Home() {
                     </h3>
                   </div>
                 </div>
-                <div className="no-scrollbar mt-8 flex items-center justify-between gap-10 overflow-y-visible overflow-x-scroll pb-28 lg:ml-20 lg:mt-0 lg:overflow-visible">
-                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 lg:w-[360px] lg:shrink lg:px-20">
+                <div className="no-scrollbar mt-8 flex items-center justify-between gap-10 overflow-y-visible overflow-x-scroll pb-28 lg:ml-20 lg:mt-0">
+                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 lg:w-[360px] lg:px-20">
                     <Image
                       src="/destination.svg"
                       alt="play logo"
@@ -307,7 +307,7 @@ export default function Home() {
                       feet.
                     </p>
                   </div>
-                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 px-20 shadow-[0_41px_89px_rgba(0,0,0,0.1)] lg:w-[360px] lg:shrink">
+                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 px-20 shadow-[0_41px_89px_rgba(0,0,0,0.1)] lg:w-[360px]">
                     <Image
                       src={"/booking1.svg"}
                       alt={"booking logo"}
@@ -319,7 +319,7 @@ export default function Home() {
                       Square, was moving across the sand in their direction.
                     </p>
                   </div>
-                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8F7F3] p-12 px-20 md:w-[360px] lg:shrink">
+                  <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8F7F3] p-12 px-20 md:w-[360px]">
                     <Image
                       src={"/cloudy.svg"}
                       alt={"cloudy logo"}
@@ -444,7 +444,7 @@ export default function Home() {
           </section>
         </main>
         <footer className="mb-20 mt-14 md:mt-28">
-          <div className="flex flex-col flex-wrap items-center gap-x-44 gap-y-8 lg:flex-row lg:items-start lg:gap-x-[clamp(2rem,7.5vw,8%)] lg:pl-[clamp(2rem,4.4vw,7%)] lg:pr-0 2xl:xl:gap-y-0 2xl:gap-x-[10.8em] 2xl:px-[10.2em] xl:gap-x-[clamp(6rem,10.4vw,12%)]">
+          <div className="flex flex-col flex-wrap items-center gap-x-44 gap-y-8 lg:flex-row lg:items-start lg:gap-x-[clamp(2rem,7.5vw,8%)] lg:pl-[clamp(2rem,4.4vw,7%)] lg:pr-0 xl:gap-x-[clamp(6rem,10.4vw,12%)] 2xl:xl:gap-y-0 2xl:gap-x-[10.8em] 2xl:px-[10.2em]">
             <div className="order-4 max-w-xs pt-7 lg:order-first lg:px-16 lg:pt-0">
               <div className="flex cursor-pointer items-center gap-3">
                 <Image
