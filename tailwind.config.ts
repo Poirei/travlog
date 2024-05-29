@@ -75,6 +75,10 @@ const config = {
       fontSize: {
         clamp: "clamp(3.5rem, 1.5vw, 4.5rem)",
       },
+      screens: {
+        xs: "450px",
+        "1.4lg": "1132px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
