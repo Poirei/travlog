@@ -58,7 +58,7 @@ const Services = () => {
         </div>
       </div>
       <div
-        className="no-scrollbar mt-8 flex cursor-grab items-center justify-between gap-10 overflow-y-visible overflow-x-scroll pb-28 pt-3 lg:ml-20 lg:mt-0"
+        className="no-scrollbar mt-8 flex cursor-grab items-center justify-between gap-10 overflow-y-visible overflow-x-scroll pb-28 pt-3 lg:mt-0 lg:pl-20"
         ref={containerRef}
       >
         <WobbleCard
