@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunitoSans.className}>{children}</body>
       <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
