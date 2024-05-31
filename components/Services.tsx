@@ -1,7 +1,50 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import { WobbleCard } from "./ui/wobble-card";
 
 const Services = () => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let startX: number;
+    let scrollLeft: number;
+    let isDown: boolean;
+
+    const container = containerRef.current as HTMLDivElement;
+
+    container.addEventListener("mousedown", (e) => mouseIsDown(e));
+    container.addEventListener("mouseup", () => mouseUp());
+    container.addEventListener("mouseleave", () => mouseLeave());
+    container.addEventListener("mousemove", (e) => mouseMove(e));
+
+    function mouseIsDown(e: { pageY: number; pageX: number }) {
+      isDown = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    }
+
+    function mouseUp() {
+      isDown = false;
+    }
+    function mouseLeave() {
+      isDown = false;
+    }
+    function mouseMove(e: {
+      preventDefault: () => void;
+      pageY: number;
+      pageX: number;
+    }) {
+      if (isDown) {
+        e.preventDefault();
+
+        //Move Horizontally
+        const x = e.pageX - container.offsetLeft;
+        const walkX = x - startX;
+        (containerRef.current as HTMLDivElement).scrollLeft =
+          scrollLeft - walkX;
+      }
+    }
+  }, []);
+
   return (
     <section className="mt-16 flex flex-col xs:mt-[16%] md:mt-24 md:flex-row lg:mt-[min(12rem,12%)] lg:justify-between">
       <div className="flex items-center justify-center md:ml-[2em] lg:ml-[6em] 1.4lg:ml-[14em]">
@@ -14,8 +57,14 @@ const Services = () => {
           </h3>
         </div>
       </div>
-      <div className="no-scrollbar mt-8 flex items-center justify-between gap-10 overflow-scroll pb-28 lg:ml-20 lg:mt-0">
-        <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 lg:w-[360px] lg:px-20">
+      <div
+        className="no-scrollbar mt-8 flex cursor-grab items-center justify-between gap-10 overflow-y-visible overflow-x-scroll pb-28 pt-3 lg:ml-20 lg:mt-0"
+        ref={containerRef}
+      >
+        <WobbleCard
+          containerClassName="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-[1rem] px-[5em] lg:w-[360px] lg:px-20 bg-[rgb(255 254 246)] hover:shadow-[0_41px_55px_rgba(0,0,0,0.04)]"
+          className="flex h-[-webkit-fill-available] w-[300px] shrink-0 flex-col items-center justify-between rounded-xl p-12 lg:w-[360px] lg:px-20"
+        >
           <Image
             src="/destination.svg"
             alt="play logo"
@@ -26,8 +75,11 @@ const Services = () => {
           <p className="mt-6 text-center font-semibold text-slate-500">
             What looked like a small patch of purple grass, above five feet.
           </p>
-        </div>
-        <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8FAFC] p-12 px-20 shadow-[0_41px_89px_rgba(0,0,0,0.1)] lg:w-[360px]">
+        </WobbleCard>
+        <WobbleCard
+          containerClassName="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-[1rem] px-[5em] lg:w-[360px] lg:px-20 bg-[rgb(255 254 246)] hover:shadow-[0_41px_55px_rgba(0,0,0,0.04)]"
+          className="flex h-[-webkit-fill-available] w-[300px] shrink-0 flex-col items-center justify-between rounded-xl p-12 lg:w-[360px] lg:px-20"
+        >
           <Image
             src={"/booking1.svg"}
             alt={"booking logo"}
@@ -38,8 +90,11 @@ const Services = () => {
           <p className="mt-6 text-center font-semibold text-slate-500">
             Square, was moving across the sand in their direction.
           </p>
-        </div>
-        <div className="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-xl bg-[#F8F7F3] p-12 px-20 md:w-[360px]">
+        </WobbleCard>
+        <WobbleCard
+          containerClassName="flex h-96 w-[300px] shrink-0 flex-col items-center justify-between rounded-[1rem] px-[5em] lg:w-[360px] lg:px-20 bg-[rgb(255 254 246)] hover:shadow-[0_41px_55px_rgba(0,0,0,0.04)]"
+          className="flex h-[-webkit-fill-available] w-[300px] shrink-0 flex-col items-center justify-between rounded-xl p-12 lg:w-[360px] lg:px-20"
+        >
           <Image
             src={"/cloudy.svg"}
             alt={"cloudy logo"}
@@ -52,7 +107,7 @@ const Services = () => {
           <p className="mt-6 text-center font-semibold text-slate-500">
             What looked like a small patch of purple grass, above five feet.
           </p>
-        </div>
+        </WobbleCard>
       </div>
     </section>
   );
