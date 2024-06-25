@@ -21,6 +21,6 @@ export default function RootLayout({
       <body className={nunitoSans.className}>{children}</body>
       <Analytics />
       <SpeedInsights />
-    </html>
+    </html> 
   );
 }
